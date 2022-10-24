@@ -1,0 +1,69 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+//QuickSort (QS) program
+vector<int> quickSort(vector<int> vec, int first, int last)
+{
+    int low = first;
+    int high = last;
+
+    int pvt = vec[(low+high)/2]; //pivot
+
+    do
+    {
+        while (vec[low]<pvt)
+            low++;
+        while(vec[high]>pvt)
+            high--;
+
+        if(low<=high) //Swap
+        {
+            int t;
+            t = vec[low];
+            vec[low] = vec[high];
+            vec[high] = t;
+            low++;
+            high--;
+        }
+
+    } while (low<=high);
+
+    //Breaking the array.
+    {
+        if (first<high)
+        {
+            quickSort(vec,first,high);
+        }
+        if(low<last)
+        {
+            quickSort(vec,low,last);
+        }
+        
+    }    
+
+    return vec;
+}
+int main()
+{
+    vector<int> v;
+    int n;
+    cout<<"Enter the size of list to sort : ";
+    cin>>n;
+    cout<<"Enter a list to sort : ";
+    for (int i = 0; i < n; i++)
+    {
+        int j;
+        cin>>j;
+        v.push_back(j);
+    }
+    vector<int> ans = quickSort(v,0, n);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout<<ans[i]<<" ";
+    }
+    
+    return 0;
+   
+
+}
