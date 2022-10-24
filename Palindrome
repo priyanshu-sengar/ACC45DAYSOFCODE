@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool palindrome(int x)
+{
+    int res=0;
+    int temp=x;
+    while (x>0)
+    {
+        int last_digit = x%10;
+        res = res*10 + last_digit;
+        x/=10;
+    }
+    
+    return (res==temp); 
+}
+
+int main()
+{
+    int y=2324;
+    cout<<palindrome(y);
+    return 0;
+}
