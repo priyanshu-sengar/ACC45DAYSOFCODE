@@ -1,0 +1,31 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int main ( )
+{
+    int n,t,j;
+    int res=0;
+    cout<<"Enter a number to check armstrong number: ";
+    cin>>n;
+    int y = n; j =n;
+    int count=0;
+    while (n>0)
+    {
+        n/=10;
+        count++;
+    }
+    cout<<"count: "<<count<<endl;
+    while (y>0)
+    {
+        t = y%10;
+        res += pow(t,count);
+        y/=10;
+    }
+    if (j==res)
+        cout<<"Armstrong number"<<endl;
+    else
+        cout<<"Not an armstrong number"<<endl;
+    
+    return 0;
+}
